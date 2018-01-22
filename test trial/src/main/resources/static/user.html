@@ -1,0 +1,130 @@
+<div  ng-controller="userController">
+	<div class="col-md-6 col-sm-12 col-xs-12">
+	<div class="panel panel-info spacer">
+		<div class="panel-heading"><h3><b>User information</b></h3></div>
+		<div class="panel-body" ng-cloak class="ng-cloak">
+			<table class="table table-striped">
+				<tr>
+					<td>Id:</td>
+					<td ng-bind="userinfo.userId">{{userinfo.userId}}</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td ng-bind="userinfo.email">{{userinfo.email}}</td>
+				</tr>
+				<tr>
+					<td>Role:</td>
+					<td ng-bind="userinfo.role">{{userinfo.role}}</td>
+				</tr>
+				<tr>
+					<td>Account code:</td>
+					<td ng-bind="userinfo.account.id">{{userinfo.account.id}}</td>
+				</tr>
+				<tr>
+					<td>Account balance:</td>
+					<td ng-bind="userinfo.account.balance">{{userinfo.account.balance}}</td>
+				</tr>
+				<tr>
+					<td>Account Currency:</td>
+					<td ng-bind="userinfo.account.currency">{{userinfo.account.currency}}</td>
+				</tr>	
+			</table>
+		</div>
+	</div>
+   </div>
+   
+   <div>
+	<div class="col-md-6 col-sm-12 col-xs-12">
+  <div class="panel panel-info spacer">
+   <div class="panel-heading "><h3><b>Available airline offers</b></h3></div>
+	<div class="panel-body" ng-cloak class="ng-cloak">
+	<form id="edit" method="post">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Departure</th>
+				<th>Destination</th>
+				<th>Amount</th>
+				<th>Currency</th>
+				<th>Number of tickets to purchase</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-form="myForm" class="form-group"  ng-repeat="off in offers" >
+				<td ng-bind="off.route.from">{{off.route.from}}</td>
+				<td ng-bind="off.route.to">{{off.route.to}}</td>
+				<td ng-bind="off.price.amount">{{off.price.amount}}</td>
+				<td ng-bind="off.price.currency">{{off.price.currency}}</td>
+				<td><input id="number" form="edit" class="form-control" type="number" min="1"  placeholder="Number of tickets to purchase" ng-model="number"></td>
+				<td><input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/></td>
+				<td><button class="btn btn-primary" ng-click="purchaseTickets(number, off, userinfo.userId)">Purchase</button></td>
+			</tr>
+		</tbody>
+		<div class="alert alert-danger" ng-show="errorMessage">
+    		{{errorMessage}}
+		</div>
+		<div class="alert alert-success" ng-show="successPurchase">
+    		{{successPurchase}}
+		</div>
+	</table>
+	
+	</form>
+	</div>
+	</div>
+	</div>
+	</div>
+	<span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-4"></span>
+   <div>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="panel panel-info spacer">
+   <div class="panel-heading"><h3><b>Purchased tickets ({{numberElement}}/{{totalElement}} items)</b></h3></div>
+	<div class="panel-body" ng-cloak class="ng-cloak">
+	<table ng- class="table table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Departure</th>
+				<th>Destination</th>
+				<th>Date</th>
+				<th>Amount</th>
+				<th>Currency</th>
+				<th>Number</th>
+				<th><div class="alert alert-danger" ng-show="errorMail">
+    						{{errorMail}}
+					</div>
+					<div class="alert alert-success" ng-show="successMail">
+    					{{successMail}}
+					</div></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="t in usertickets.content">
+				<td ng-bind="t.id">{{t.id}}</td>
+				<td ng-bind="t.departure">{{t.departure}}</td>
+				<td ng-bind="t.destination">{{t.destination}}</td>
+				<td ng-bind="t.date|date:'yyyy-MM-dd HH:mm:ss">{{t.date|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+				<td ng-bind="t.amount">{{t.amount}}</td>
+				<td ng-bind="t.currency">{{t.currency}}</td>
+				<td ng-bind="t.number">{{t.number}}</td>
+				<td><button class="btn btn-primary" ng-click="sendMail(t.id)">Summary in email</button></td>
+				<td><button class="btn btn-primary" ng-click="download(t.id)">Download as pdf</button></td>
+			</tr>
+		</tbody>
+		
+		<div class="alert alert-success" ng-show="emailMessage">
+    		{{emailMessage}}
+		</div>
+	</table>
+	<div class="container">
+		<ul class="nav nav-pills">
+			<li ng-class="{active:$index==currentUserTicketPage}" class="clickable" ng-repeat="p in pages track by $index">
+				<a ng-click="gotoPage($index, userinfo.userId)">{{$index}}</a>
+			</li>
+		</ul>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+
+</div>

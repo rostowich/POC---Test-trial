@@ -1,0 +1,97 @@
+<div ng-controller="adminController">   <div class="col-md-12 col-sm-12 col-xs-12">
+	<div class="panel panel-info spacer">
+		<div class="panel-heading"><h3><b>Find a user</b></h3></div>
+		<div class="panel-body">
+			<form>
+				<div class="form-group">
+				<label>Email</label>
+				<input type="text" ng-model="email">
+				<button class="btn btn-primary" ng-click="findUser()">Find</button>
+				<span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
+				</div>
+			</form>
+		</div>
+	</div>
+   </div>
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="panel panel-info spacer">
+   <div class="panel-heading"><h3><b>List of users ({{numberElement1}}/{{totalElement1}} items)</b></h3></div>
+	<div class="panel-body" ng-cloak class="ng-cloak">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Email</th>
+				<th>Role</th>
+				<th>Account number</th>
+				<th>Account balance</th>
+				<th>Account currency</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="u in users.content">
+				<td ng-bind="u.userId">{{u.userId}}</td>
+				<td ng-bind="u.email">{{u.email}}</td>
+				<td ng-bind="u.role">{{u.role}}</td>
+				<td ng-bind="u.account.id">{{u.account.id}}</td>
+				<td ng-bind="u.account.balance">{{u.account.balance}}</td>
+				<td ng-bind="u.account.currency">{{u.account.currency}}</td>
+				<td><button class="btn btn-primary" ng-click="getTickets(u.userId, u.email,0)">Show his tickets</button></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div class="container">
+		<ul class="nav nav-pills">
+			<li ng-class="{active:$index==currentPage}" class="clickable" ng-repeat="p in pages track by $index">
+				<a ng-click="gotoPage($index)">{{$index}}</a>
+			</li>
+		</ul>
+	</div>
+	</div>
+	</div>
+	</div>
+	<div ng-if="tickets">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="panel panel-info spacer">
+   <div class="panel-heading"><h3><b>Tickets for {{currentUserTicket}} ({{numberElement2}}/{{totalElement2}} items)</b></h3></div>
+	<div class="panel-body" ng-cloak class="ng-cloak">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Departure</th>
+				<th>Destination</th>
+				<th>Date</th>
+				<th>Amount</th>
+				<th>Currency</th>
+				<th>Number</th>
+				<th>User</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="t in tickets.content">
+				<td ng-bind="t.id">{{t.id}}</td>
+				<td ng-bind="t.departure">{{t.departure}}</td>
+				<td ng-bind="t.destination">{{t.destination}}</td>
+				<td ng-bind="t.date|date:'yyyy-MM-dd HH:mm:ss'">{{t.date|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+				<td ng-bind="t.amount">{{t.amount}}</td>
+				<td ng-bind="t.currency">{{t.currency}}</td>
+				<td ng-bind="t.number}">{{t.number}}</td>
+				<td ng-bind="t.user.email">{{t.user.email}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="container">
+		<ul class="nav nav-pills">
+			<li ng-class="{active:$index==currentTicketPage}" class="clickable" ng-repeat="p in ticketPages track by $index">
+				<a ng-click="gotoPageTicket($index,currentUserId,currentUserTicket)">{{$index}}</a>
+			</li>
+		</ul>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+</div>

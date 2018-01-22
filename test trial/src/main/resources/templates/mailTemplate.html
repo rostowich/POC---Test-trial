@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Airline ticketing system</title>
+</head>
+<body>
+	<h3>Hello,</h3>
+	Thank you for your purchase. Kindly find below the details of your ticket:<br/>
+	<b>ID: </b><span th:text="${id}"></span><br/>
+	<b>Purchase date: </b><span th:text="${date}"></span><br/>
+	<b>Departure: </b><span th:text="${departure}"></span><br/>
+	<b>Destination: </b><span th:text="${destination}"></span><br/>
+	<b>Amount: </b><span th:text="${amount}"></span> <span th:text="${currency}"><br/>
+	<b>Number of tickets: </b><span th:text="${number}"></span></span><br/>
+	<b>Email: </b><span th:text="${email}"></span><br/><br/>
+	<b><i>Airline Portal</i></b><br/>
+	<b><i>Best regards</i></b>
+</body>
+</html>

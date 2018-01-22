@@ -1,0 +1,11 @@
+<dataset>
+    <accounts code="KoXNPQA7Q"
+           balance="1000"
+           currency="USD"/>
+    <accounts code="mvqp8E8Q5"
+           balance="300"
+           currency="EUR"/>
+    <accounts code="mPMp8RVG0"
+           balance="300"
+           currency="USD"/>
+</dataset>

@@ -1,0 +1,22 @@
+<dataset>
+    <users 
+           email="crossover@crossover.com"
+           password_hash="23V@ahdseezetafdsfdvdsdFEBZBdsdsdvs"
+           role="USER"
+           code="ZEdfZEvcSDQ9"/>
+    <users 
+           email="testtrial@crossover.com"
+           password_hash="23V@ahdseegfddyCCDQKDOSDZUTZETZ"
+           role="USER"
+           code="IOdfZ663SDQ9"/>
+    <users 
+           email="third123@third123.com"
+           password_hash="56V@ahdsusnsfddyCifuidsfuiZUTZETZ"
+           role="USER"
+           code="YHud0TZEyDfd"/>
+    <users 
+           email="third123@crossover.com"
+           password_hash="56V@ahdsusnsfddyCifuidsfuiZUTZETZ"
+           role="USER"
+           code="OPud0TZUIyDfd"/>
+</dataset>

@@ -1,0 +1,56 @@
+<dataset>
+	<accounts code="ZEdfZEvcS"
+           balance="1000"
+           currency="USD"/>
+    <accounts code="RvsvdUUEcS"
+           balance="700"
+           currency="USD"/>
+	 <users
+	 	   user_id="1" 
+           email="crossover@crossover.com"
+           password_hash="23V@ahdseezetafdsfdvdsdFEBZBdsdsdvs"
+           role="USER"
+           code="ZEdfZEvcS"/>
+    <users
+	 	   user_id="2" 
+           email="testTrial@crossover.com"
+           password_hash="23V@ahdseezetafdsfdvdsdFEBZBdsdsdvs"
+           role="USER"
+           code="RvsvdUUEcS"/>
+    <tickets 
+    		id="1"
+           amount="100"
+           currency="EUR"
+           date="2017-03-20 00:00:00.000000000"
+           departure="London"
+           destination="Madrid"
+           number="1"
+           user_id="1"/>
+    <tickets 
+    		id="2"
+           amount="100"
+           currency="EUR"
+           date="2017-03-20 00:00:00.000000000"
+           departure="London"
+           destination="Madrid"
+           number="2"
+           user_id="1"/>
+    <tickets
+    	   id="3" 
+           amount="100"
+           currency="EUR"
+           date="2017-03-20 00:00:00.000000000"
+           departure="London"
+           destination="Paris"
+           number="1"
+           user_id="1"/>
+    <tickets 
+    		id="4"
+           amount="100"
+           currency="EUR"
+           date="2017-03-20 00:00:00.000000000"
+           departure="London"
+           destination="Paris"
+           number="1"
+           user_id="2"/>
+</dataset>

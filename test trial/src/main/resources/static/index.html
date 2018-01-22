@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<title>Travel portal</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.0.3-dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/myStyle.css" />
+	<link rel="stylesheet" type="text/css" href="angularjs-datepicker/src/css/angular-datepicker.css" />
+	<style type="text/css">
+	[ng\:cloak], [ng-cloak], .ng-cloak {
+	  display: none !important;
+	}
+	</style>
+</head>
+<body ng-app="indexApp"  ng-controller="indexController">
+   	<header>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/"><b>Airline Travel management portal</b></a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/">Home</a></li>
+                    <li><a ng-show="!authenticated" href="#register">Register</a></li>
+                    <li><a ng-show="!authenticated" href="#login">Login</a></li>
+                    <li><a ng-show="authenticated && permission=='USER'" href="#user">Purchase</a></li>
+                    <li><a ng-show="authenticated && permission=='ADMIN'" href="#admin">Users</a></li>
+                    <li><a ng-show="authenticated && permission=='ADMIN'" href="#order">Orders</a></li>
+                    <li><a ng-show="authenticated" href="#login" ng-click="logout()" >logout({{userEmail}})</a></li>
+                </ul>
+            </div>
+            </nav>
+        </header>
+		<div ng-view></div>
+
+	<script type="text/javascript" src="angular-1.6.2/angular.min.js"></script>
+	<script type="text/javascript" src="angular-1.6.2/angular-route.min.js"></script>
+	<script type="text/javascript" src="angular-1.6.2/angular-spinners.min.js"></script>
+	<script type="text/javascript" src="angular-1.6.2/angular.spin.min.js"></script>
+	<script type="text/javascript" src="angularjs-datepicker/src/js/angular-datepicker.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
+	<script type="text/javascript" src="js/login.js"></script> 
+	<script type="text/javascript" src="js/userApp.js"></script>
+	<script type="text/javascript" src="js/admin.js"></script>
+	<script type="text/javascript" src="js/orders.js"></script>
+	</body>
+</html>
