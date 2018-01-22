@@ -7,4 +7,4 @@ functionalities of the system:
 	password:administrator
 	
 3) You should have internet connection to launch the application and the tests: Because there
-are some interactions will the external system provided by crossover.com
+are some interactions will the external system 
